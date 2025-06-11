@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Consola RULO-LAB</title>
+  <style>
+    body {
+      background: black;
+      color: lime;
+      font-family: monospace;
+      padding: 20px;
+      overflow: hidden;
+    }
+    #console {
+      white-space: pre-wrap;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div id="console"></div>
+  <script>
+    const output = document.getElementById("console");
+    const lines = [
+      "Estableciendo conexión con servidor DNS...",
+      "Resolviendo dominio candc.rulo-lab.com...",
+      "Recibiendo comando desde registro TXT...",
+      "RUN: curl -s https://githubusercontent.com/... && open rulo.jpeg",
+      "Ejecutando comando...",
+      "Descargando payload visual...",
+      "Inyectando mensaje...",
+      ">>> SISTEMA COMPROMETIDO POR RULO-LAB <<<"
+    ];
+
+    let index = 0;
+
+    function printLine() {
+      if (index < lines.length) {
+        output.innerHTML += lines[index] + "\n";
+        index++;
+        setTimeout(printLine, 1000);
+      }
+    }
+
+    printLine();
+  </script>
+</body>
+</html>
