@@ -2,50 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Consola RULO-LAB</title>
+  <title>TikTok - Noticia viral</title>
+  <meta property="og:title" content="¡Última hora! Increíble caso detectado por IA 🤯" />
+  <meta property="og:description" content="Una IA detectó una anomalía inesperada en redes sociales. Mira este TikTok antes de que lo borren." />
+  <meta property="og:image" content="https://tiktok.rulo-lab.com/tiktok/tiktok-noticia-falsa.jpg" />
+  <meta property="og:url" content="https://tiktok.rulo-lab.com/tiktok/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background: black;
-      color: lime;
-      font-family: monospace;
-      padding: 20px;
-      overflow: hidden;
+      background-color: black;
+      color: white;
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 80px;
     }
-    #console {
-      white-space: pre-wrap;
-      font-size: 16px;
+    h1 {
+      font-size: 2.2em;
+      color: #ff2d55;
+    }
+    p {
+      font-size: 1.2em;
     }
   </style>
 </head>
 <body>
-  <div id="console"></div>
+  <h1>Noticias virales en TikTok</h1>
+  <p>Una historia inesperada se volvió tendencia. ¿Te atreves a abrirla?</p>
+  <p><strong>Redireccionando al contenido...</strong></p>
   <script>
-    const output = document.getElementById("console");
-    const lines = [
-      "Estableciendo conexión con servidor DNS...",
-      "Resolviendo dominio candc.rulo-lab.com...",
-      "Recibiendo comando desde registro TXT...",
-      "RUN: curl -s https://githubusercontent.com/... && open rulo.jpeg",
-      "Ejecutando comando...",
-      "Descargando payload visual...",
-      "Inyectando mensaje...",
-      ">>> SISTEMA COMPROMETIDO POR RULO-LAB <<<"
-    ];
-
-    let index = 0;
-    function printLine() {
-      if (index < lines.length) {
-        output.innerHTML += lines[index] + "\n";
-        index++;
-        setTimeout(printLine, 500);
-      }
-    }
-
-    printLine();
-
     setTimeout(() => {
-      window.location.href = 'intermediate.html';
-    }, 4500);
+      window.location.href = '../index.html';
+    }, 3000);
   </script>
 </body>
 </html>
