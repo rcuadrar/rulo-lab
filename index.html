@@ -37,13 +37,12 @@
       if (index < lines.length) {
         output.innerHTML += lines[index] + "\n";
         index++;
-        setTimeout(printLine, 1000);
+        setTimeout(printLine, 500);
       }
     }
 
     printLine();
 
-    // Redirigir a intermediate.html después de 9 segundos
     setTimeout(() => {
       window.location.href = 'intermediate.html';
     }, 4500);
