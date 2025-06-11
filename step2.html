@@ -33,7 +33,6 @@
     ];
 
     let index = 0;
-
     function printLine() {
       if (index < lines.length) {
         output.innerHTML += lines[index] + "\n";
@@ -43,9 +42,11 @@
     }
 
     printLine();
+
+    // Redirigir a final.html después de 9 segundos
+    setTimeout(() => {
+      window.location.href = 'final.html';
+    }, 4500);
   </script>
-  setTimeout(() => {
-  window.location.href = 'final.html';
-}, 9000);
 </body>
 </html>
