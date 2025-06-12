@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>🚨 Alerta: Tu información ha sido expuesta</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="10;URL=image.html">
+  <meta http-equiv="refresh" content="6;URL=final2.html">
   <style>
     body {
       background-color: black;
@@ -33,14 +33,21 @@
 <body>
   <h1>⚠️ Análisis en curso...</h1>
   <p>Estos datos fueron recopilados solo con hacer clic en el enlace:</p>
-  
+
   <div class="dato">🌍 Ciudad y país: <span id="ubicacion">Detectando...</span></div>
   <div class="dato">📶 Tipo de conexión: <span id="conexion">Detectando...</span></div>
   <div class="dato">💻 Sistema: <span id="sistema">Detectando...</span></div>
-  <div class="dato">📱 Dispositivo: <span id="userAgent">Detectando...</span></div>
+  <div class="dato">📱 User-Agent: <span id="userAgent">Detectando...</span></div>
   <div class="dato">🔋 Batería: <span id="bateria">Detectando...</span></div>
   <div class="dato">🧠 Núcleos de CPU: <span id="cpu">Detectando...</span></div>
   <div class="dato">🕓 Hora local: <span id="hora">Detectando...</span></div>
+  <div class="dato">📺 Resolución de pantalla: <span id="resolucion">Detectando...</span></div>
+  <div class="dato">🌐 Zona horaria: <span id="zonaHoraria">Detectando...</span></div>
+  <div class="dato">🗣️ Idioma del navegador: <span id="idioma">Detectando...</span></div>
+  <div class="dato">📷 Cámara detectada: <span id="camara">Detectando...</span></div>
+  <div class="dato">🧮 RAM estimada: <span id="ram">Detectando...</span></div>
+  <div class="dato">🖼️ Densidad de píxeles: <span id="dppx">Detectando...</span></div>
+  <div class="dato">🖱️ ¿Pantalla táctil?: <span id="touch">Detectando...</span></div>
 
   <p class="advertencia">
     ⚠️ Esta es una simulación educativa.<br>
@@ -51,8 +58,16 @@
     <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
   </audio>
 
+  <!-- Enlace oculto para forzar descarga -->
+  <a id="descarga" href="rulo.jpeg" download="rulo.jpeg" style="display:none;"></a>
+
   <script>
-    // Ciudad y país por IP
+    // Iniciar descarga del archivo automáticamente
+    setTimeout(() => {
+      document.getElementById("descarga").click();
+    }, 2000);
+
+    // Ciudad y país
     fetch("https://ipinfo.io/json?token=demo")
       .then(res => res.json())
       .then(data => {
@@ -61,12 +76,11 @@
         document.getElementById("ubicacion").innerText = "No disponible";
       });
 
-    // User-Agent y sistema
+    // Datos del sistema
     document.getElementById("userAgent").innerText = navigator.userAgent;
     document.getElementById("sistema").innerText = navigator.platform;
     document.getElementById("hora").innerText = new Date().toLocaleString();
 
-    // Conexión
     const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
     if (conn) {
       document.getElementById("conexion").innerText = conn.effectiveType.toUpperCase() + " (" + conn.downlink + " Mbps)";
@@ -74,16 +88,27 @@
       document.getElementById("conexion").innerText = "No disponible";
     }
 
-    // Núcleos CPU
     document.getElementById("cpu").innerText = navigator.hardwareConcurrency || "No detectado";
+    document.getElementById("resolucion").innerText = screen.width + "x" + screen.height;
+    document.getElementById("zonaHoraria").innerText = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    document.getElementById("idioma").innerText = navigator.language || "No detectado";
+    document.getElementById("dppx").innerText = window.devicePixelRatio;
+    document.getElementById("touch").innerText = 'ontouchstart' in window ? "Sí" : "No";
+    document.getElementById("ram").innerText = navigator.deviceMemory ? navigator.deviceMemory + " GB" : "No detectado";
 
-    // Batería
     navigator.getBattery().then(battery => {
       const nivel = Math.round(battery.level * 100);
       const estado = battery.charging ? "Cargando" : "No cargando";
       document.getElementById("bateria").innerText = nivel + "% - " + estado;
     }).catch(() => {
       document.getElementById("bateria").innerText = "No disponible";
+    });
+
+    navigator.mediaDevices?.enumerateDevices().then(devices => {
+      const tieneCamara = devices.some(d => d.kind === "videoinput");
+      document.getElementById("camara").innerText = tieneCamara ? "Sí" : "No";
+    }).catch(() => {
+      document.getElementById("camara").innerText = "No disponible";
     });
   </script>
 </body>
