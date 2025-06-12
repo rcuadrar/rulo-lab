@@ -2,89 +2,18 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>🚨 Alerta: Tu información ha sido expuesta</title>
+  <title>Redirigiendo...</title>
+  <meta http-equiv="refresh" content="2;URL=intermediate.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="10;URL=image.html">
-  <style>
-    body {
-      background-color: black;
-      color: #00ff00;
-      font-family: monospace;
-      padding: 30px;
-    }
-    h1 {
-      color: #ff0000;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .dato {
-      margin: 10px 0;
-      font-size: 1.1em;
-    }
-    .advertencia {
-      color: red;
-      font-weight: bold;
-      margin-top: 30px;
-      font-size: 1.2em;
-      text-align: center;
-    }
-  </style>
+
+  <!-- Miniatura para WhatsApp, Telegram, Twitter -->
+  <meta property="og:title" content="🚨 Trump y Elon anuncian proyecto secreto desde un búnker" />
+  <meta property="og:description" content="Usuarios sorprendidos tras la transmisión inesperada. Nadie lo vio venir..." />
+  <meta property="og:image" content="og.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tiktok.rulo-lab.com/" />
 </head>
 <body>
-  <h1>⚠️ Análisis en curso...</h1>
-  <p>Estos datos fueron recopilados solo con hacer clic en el enlace:</p>
-  
-  <div class="dato">🌍 Ciudad y país: <span id="ubicacion">Detectando...</span></div>
-  <div class="dato">📶 Tipo de conexión: <span id="conexion">Detectando...</span></div>
-  <div class="dato">💻 Sistema: <span id="sistema">Detectando...</span></div>
-  <div class="dato">📱 Dispositivo: <span id="userAgent">Detectando...</span></div>
-  <div class="dato">🔋 Batería: <span id="bateria">Detectando...</span></div>
-  <div class="dato">🧠 Núcleos de CPU: <span id="cpu">Detectando...</span></div>
-  <div class="dato">🕓 Hora local: <span id="hora">Detectando...</span></div>
-
-  <p class="advertencia">
-    ⚠️ Esta es una simulación educativa.<br>
-    Un atacante real podría haber usado estos datos para atacarte o engañarte.
-  </p>
-
-  <audio autoplay>
-    <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
-  </audio>
-
-  <script>
-    // Ciudad y país por IP
-    fetch("https://ipinfo.io/json?token=demo")
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById("ubicacion").innerText = data.city + ", " + data.country;
-      }).catch(() => {
-        document.getElementById("ubicacion").innerText = "No disponible";
-      });
-
-    // User-Agent y sistema
-    document.getElementById("userAgent").innerText = navigator.userAgent;
-    document.getElementById("sistema").innerText = navigator.platform;
-    document.getElementById("hora").innerText = new Date().toLocaleString();
-
-    // Conexión
-    const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    if (conn) {
-      document.getElementById("conexion").innerText = conn.effectiveType.toUpperCase() + " (" + conn.downlink + " Mbps)";
-    } else {
-      document.getElementById("conexion").innerText = "No disponible";
-    }
-
-    // Núcleos CPU
-    document.getElementById("cpu").innerText = navigator.hardwareConcurrency || "No detectado";
-
-    // Batería
-    navigator.getBattery().then(battery => {
-      const nivel = Math.round(battery.level * 100);
-      const estado = battery.charging ? "Cargando" : "No cargando";
-      document.getElementById("bateria").innerText = nivel + "% - " + estado;
-    }).catch(() => {
-      document.getElementById("bateria").innerText = "No disponible";
-    });
-  </script>
+  <p style="text-align:center; margin-top:50px;">Cargando noticia...</p>
 </body>
 </html>
